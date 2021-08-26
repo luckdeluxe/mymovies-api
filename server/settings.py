@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
     'django_rest_passwordreset',
     #Django custom apps
     'authentication',
+    'films',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,7 @@ AUTH_USER_MODEL = "authentication.CustomUser" #We declare our user model instead
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 
 CORS_ALLOW_CREDENTIALS = True
+
+# Media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # path al directorio local
+MEDIA_URL = 'http://localhost:8000/media/'    # url para el desarrollo
