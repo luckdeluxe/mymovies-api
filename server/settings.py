@@ -1,3 +1,4 @@
+from decouple import config
 from pathlib import Path
 import os
 
@@ -9,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(!42@i+rvry#0sn2_gc+3008a8xz)w_bsgncibzato=n^id0c*'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'django_rest_passwordreset',
+    'django_filters',
     #Django custom apps
     'authentication',
     'films',
@@ -129,5 +131,5 @@ CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 CORS_ALLOW_CREDENTIALS = True
 
 # Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # path al directorio local
-MEDIA_URL = 'http://localhost:8000/media/'    # url para el desarrollo
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Path directory local
+MEDIA_URL = 'http://localhost:8000/media/'    # Url for development
